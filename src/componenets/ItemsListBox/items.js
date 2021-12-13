@@ -17,7 +17,7 @@ function Items({ task, list, updateList }) {
 
   return (
     <div key={task.name}>
-      <div className="grid grid-cols-3 gap- content-start m-5 border-2 border-zinc-500 rounded-full  shadow-xl  ">
+      <div className="grid grid-cols-4  content-start m-5 border-2 border-zinc-500 rounded-full  shadow-xl  ">
         <span name={task.name} className={`${striked ? "strike" : ""}`}>
           <h1>
             <b>{task.name}</b>
@@ -29,6 +29,9 @@ function Items({ task, list, updateList }) {
           className=" font-bold w-20  text-green-500 border-2 border-green-500 rounded-full  hover:bg-green-500 hover:text-white m-2  ml-24"
         >
           ✓
+        </button>
+        <button className=" font-bold w-20  text-yellow-500 border-2 border-yellow-500 rounded-full  hover:bg-yellow-500 hover:text-white m-2  ml-24">
+          <i className="fa fa-pencil"></i>
         </button>
         <button
           onClick={() => handleRemoveItem(task.name)}

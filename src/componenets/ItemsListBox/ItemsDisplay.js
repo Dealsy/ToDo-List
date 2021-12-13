@@ -13,8 +13,8 @@ function ItemsDisplay() {
 
   return (
     <div className="shadow-xl border-2 rounded-3xl mx-96 mt-5 border-grey   ">
-      <AddItem setData={setData} />
-      {data.map((task) => (
+      <AddItem setData={updateList} />
+      {list.map((task) => (
         <Items
           key={task.name}
           updateList={updateList}
