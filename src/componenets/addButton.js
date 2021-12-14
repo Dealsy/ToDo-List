@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import uuid from "react-uuid";
 
 function AddItem({ setData }) {
   const [add, addItem] = useState("");
@@ -6,7 +7,7 @@ function AddItem({ setData }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    setData((oldArray) => [...oldArray, { name: add }]);
+    setData((oldArray) => [...oldArray, { name: add, id: uuid() }]);
   }
 
   return (

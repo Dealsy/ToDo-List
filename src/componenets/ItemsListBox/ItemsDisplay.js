@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import Items from "./items";
 import AddItem from "../addButton";
+import uuid from "react-uuid";
 
 function ItemsDisplay() {
-  const [data, setData] = useState([
-    { name: "Eat" },
-    { name: "Sleep" },
-    { name: "Repeat" },
-  ]);
+  const data = [
+    { name: "Eat", id: uuid() },
+    { name: "Sleep", id: uuid() },
+    { name: "Repeat", id: uuid() },
+  ];
+
   const [list, updateList] = React.useState(data);
   console.log(list);
 
@@ -15,12 +17,7 @@ function ItemsDisplay() {
     <div className="shadow-xl border-2 rounded-3xl mx-96 mt-5 border-grey   ">
       <AddItem setData={updateList} />
       {list.map((task) => (
-        <Items
-          key={task.name}
-          updateList={updateList}
-          list={list}
-          task={task}
-        />
+        <Items key={uuid()} updateList={updateList} list={list} task={task} />
       ))}
     </div>
   );
