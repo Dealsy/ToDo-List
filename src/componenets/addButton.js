@@ -17,10 +17,10 @@ function AddItem({ setData }) {
   }
 
   return (
-    <form>
+    <form className="mb-4">
       <input
         type="text"
-        className="shadow-xl border-2 border-blue-500 rounded mt-5 p-2 mr-2"
+        className="shadow-xl  shadow-blue-500/50 border-2 border-blue-500 rounded mt-5 p-2 mr-2"
         placeholder="Type a new item here"
         onChange={(e) => addItem(e.target.value)}
       />
@@ -28,7 +28,7 @@ function AddItem({ setData }) {
       <button
         type="submit"
         onClick={handleSubmit}
-        className=" shadow-xl border-2 border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white font-bold p-2 mt-5"
+        className=" shadow-xl border-2 border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white font-bold p-2 mt-5  shadow-blue-500/50"
       >
         Add Item
       </button>

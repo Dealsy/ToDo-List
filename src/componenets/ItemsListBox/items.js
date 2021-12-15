@@ -6,6 +6,10 @@ import Button from "react-bootstrap/Button";
 function Items({ task, list, updateList }) {
   const [striked, setStriked] = useState(false);
   const [modalShow, setModalShow] = useState(false);
+  const [edit, setEdit] = useState(false);
+  const [input, setInput] = useState("");
+
+  console.log(input);
 
   const handleClick = () => {
     setStriked((s) => !s);
@@ -16,6 +20,12 @@ function Items({ task, list, updateList }) {
 
     updateList(newList);
     console.log("new", newList);
+  }
+
+  function updateTodo(e) {
+    e.preventDefault();
+    const value = input;
+    console.log(value);
   }
 
   function MyVerticallyCenteredModal(props) {
@@ -36,6 +46,7 @@ function Items({ task, list, updateList }) {
             className="border-2 border-zinc-400 p-2 w-96 rounded-lg"
             type="textarea"
             name="editField"
+            onChange={(e) => setInput(e.target.value)}
             placeholder={task.name}
           />
         </Modal.Body>
@@ -43,18 +54,18 @@ function Items({ task, list, updateList }) {
           <Button variant="danger" onClick={props.onHide}>
             Cancel
           </Button>
-          <Button variant="success">Save</Button>
+          <Button variant="success">Update</Button>
         </Modal.Footer>
       </Modal>
     );
   }
 
   return (
-    <div key={uuid()}>
-      <div className="grid grid-cols-4  content-start m-5 border-2 border-zinc-500 rounded-full  shadow-xl  ">
+    <div className="flex justify-center " key={uuid()}>
+      <div className="grid grid-cols-4  content-start m-2 border-2 border-zinc-500 rounded-full p-2  shadow-xl">
         <span name={task.name} className={`${striked ? "strike" : ""}`}>
           <h1>
-            <b>{task.name}</b>
+            <b className="text-2xl font-serif">{task.name}</b>
           </h1>
         </span>
         <div className="contents"></div>
@@ -66,7 +77,7 @@ function Items({ task, list, updateList }) {
         </button>
         <button
           onClick={() => setModalShow(true)}
-          className=" font-bold w-20  text-yellow-500 border-2 border-yellow-500 rounded-full  hover:bg-yellow-500 hover:text-white m-2  ml-24"
+          className=" font-bold w-20   text-yellow-500 border-2 border-yellow-500 rounded-full  hover:bg-yellow-500 hover:text-white m-2  ml-24"
         >
           <i className="fa fa-pencil"></i>
         </button>

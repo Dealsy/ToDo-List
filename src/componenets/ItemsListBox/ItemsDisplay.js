@@ -14,7 +14,7 @@ function ItemsDisplay() {
   console.log(list);
 
   return (
-    <div className="shadow-xl border-2 rounded-3xl mx-96 mt-5 border-grey   ">
+    <div className="shadow-xl border-2 pb-10  mt-5 border-grey   ">
       <AddItem setData={updateList} />
       {list.map((task) => (
         <Items key={uuid()} updateList={updateList} list={list} task={task} />
